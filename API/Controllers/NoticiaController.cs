@@ -20,10 +20,11 @@ namespace Webapiaspnet.Controllers
 
         // GET: api/<NoticiaController>
         [HttpGet]
-        [Authorize]
-        public IEnumerable<Noticia> GetNoticias()
+        public IActionResult GetNoticias()
         {
-            return _noticiaService.GetAllNoticias();
+            var noticias = new List<Noticia>();
+            noticias = _noticiaService.GetAllNoticias();
+            return Ok(noticias);
         }
 
         // GET api/<NoticiaController>/5
